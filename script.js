@@ -314,3 +314,19 @@ document.getElementById("reset-feather").addEventListener("click", () => {
 });
 
 updateFeather();
+
+
+// FEDER ANKLICKEN = ZUFALLSFARBEN
+
+feather.addEventListener("click", () => {
+    const randomColor = () =>
+        "#" + Math.floor(Math.random() * 16777215)
+            .toString(16).padStart(6, "0");
+
+    outerColor.value = randomColor();
+    middleColor.value = randomColor();
+    innerColor.value = randomColor();
+    centerColor.value = randomColor();
+
+    updateFeather();
+});
