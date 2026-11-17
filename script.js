@@ -234,3 +234,16 @@ document.getElementById("restart-quiz").addEventListener("click", () => {
 // START
 
 showQuestion();
+
+
+
+const peacockTitle = document.getElementById("peacock-title");
+const peacockEgg = document.getElementById("peacock-easteregg");
+
+peacockTitle.addEventListener("click", () => {
+    peacockEgg.classList.add("active");
+});
+
+peacockEgg.addEventListener("click", () => {
+    peacockEgg.classList.remove("active");
+});
