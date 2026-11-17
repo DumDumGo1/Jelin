@@ -1027,3 +1027,204 @@ footer p {
     transform: scale(1.06);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
+
+
+/* =========================
+   PFAUEN-FARB-LABOR
+========================= */
+
+.color-lab {
+    padding: 80px 25px;
+    background:
+        radial-gradient(circle at 15% 20%, #176b76, transparent 40%),
+        linear-gradient(135deg, #061e36, #073d43, #075b50);
+    color: white;
+    border-radius: 28px;
+    margin: 50px 0;
+    overflow: hidden;
+}
+
+.lab-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.lab-heading span {
+    color: #e8d77b;
+    letter-spacing: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.lab-heading h2 {
+    font-size: clamp(32px, 5vw, 55px);
+    margin: 15px 0;
+    color: #e8df9a;
+}
+
+.lab-heading p {
+    color: #c6e7dc;
+}
+
+.lab-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    max-width: 950px;
+    margin: auto;
+    align-items: center;
+}
+
+.feather-preview {
+    min-height: 430px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.feather-preview p {
+    color: #e7e2a6;
+    letter-spacing: 2px;
+}
+
+/* Die Feder */
+
+.feather {
+    width: 230px;
+    height: 300px;
+    position: relative;
+    transform: rotate(-15deg);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    transition: 0.4s;
+}
+
+.feather::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--outer, #008f91);
+    clip-path: polygon(
+        50% 0%, 65% 10%, 85% 25%,
+        100% 45%, 85% 65%, 65% 80%,
+        50% 100%, 35% 80%, 15% 65%,
+        0% 45%, 15% 25%, 35% 10%
+    );
+    border-radius: 50%;
+}
+
+.feather-eye {
+    position: absolute;
+    width: 115px;
+    height: 160px;
+    top: 48px;
+    left: 57px;
+    border-radius: 50%;
+    background: var(--middle, #1768c4);
+    transform: rotate(-15deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.feather-eye::before {
+    content: "";
+    position: absolute;
+    width: 78px;
+    height: 115px;
+    border-radius: 50%;
+    background: var(--inner, #e5c84b);
+}
+
+.eye-center {
+    position: relative;
+    width: 45px;
+    height: 75px;
+    border-radius: 50%;
+    background: var(--center, #143c70);
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+.feather-stem {
+    position: absolute;
+    width: 4px;
+    height: 115px;
+    background: rgba(255,255,255,0.65);
+    bottom: -80px;
+    left: 113px;
+    transform: rotate(-3deg);
+    border-radius: 10px;
+}
+
+/* Farb-Regler */
+
+.lab-controls {
+    background: rgba(0,0,0,0.2);
+    padding: 30px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.lab-controls h3 {
+    color: #f0dc82;
+    margin: 10px 0 20px;
+}
+
+.lab-controls label {
+    display: block;
+    margin: 17px 0 7px;
+    color: #d5eee6;
+}
+
+.lab-controls input[type="color"] {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+}
+
+.lab-controls select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: none;
+    background: #e1f3e9;
+    color: #064b48;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.lab-controls button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(100deg, #078b85, #2467a5);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lab-controls button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 700px) {
+    .lab-container {
+        grid-template-columns: 1fr;
+    }
+
+    .feather-preview {
+        min-height: 370px;
+    }
+}

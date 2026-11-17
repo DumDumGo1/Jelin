@@ -247,3 +247,70 @@ peacockTitle.addEventListener("click", () => {
 peacockEgg.addEventListener("click", () => {
     peacockEgg.classList.remove("active");
 });
+
+
+
+const feather = document.getElementById("feather");
+const featherEye = document.getElementById("feather-eye");
+
+const outerColor = document.getElementById("outer-color");
+const middleColor = document.getElementById("middle-color");
+const innerColor = document.getElementById("inner-color");
+const centerColor = document.getElementById("center-color");
+
+const pattern = document.getElementById("feather-pattern");
+
+function updateFeather() {
+    feather.style.setProperty("--outer", outerColor.value);
+    feather.style.setProperty("--middle", middleColor.value);
+    feather.style.setProperty("--inner", innerColor.value);
+    feather.style.setProperty("--center", centerColor.value);
+}
+
+[outerColor, middleColor, innerColor, centerColor].forEach(input => {
+    input.addEventListener("input", updateFeather);
+});
+
+const patterns = {
+    classic: ["#008f91", "#1768c4", "#e5c84b", "#143c70"],
+    rainbow: ["#e74c8b", "#8c53d9", "#f6c94b", "#247acb"],
+    mystic: ["#147f87", "#5d48b5", "#7fffe0", "#182e71"],
+    sunset: ["#d65b47", "#e99b45", "#f5d36b", "#873c73"]
+};
+
+pattern.addEventListener("change", () => {
+    const colors = patterns[pattern.value];
+
+    outerColor.value = colors[0];
+    middleColor.value = colors[1];
+    innerColor.value = colors[2];
+    centerColor.value = colors[3];
+
+    updateFeather();
+});
+
+document.getElementById("random-feather").addEventListener("click", () => {
+    const randomColor = () =>
+        "#" + Math.floor(Math.random() * 16777215)
+            .toString(16).padStart(6, "0");
+
+    outerColor.value = randomColor();
+    middleColor.value = randomColor();
+    innerColor.value = randomColor();
+    centerColor.value = randomColor();
+
+    pattern.value = "classic";
+    updateFeather();
+});
+
+document.getElementById("reset-feather").addEventListener("click", () => {
+    outerColor.value = "#008f91";
+    middleColor.value = "#1768c4";
+    innerColor.value = "#e5c84b";
+    centerColor.value = "#143c70";
+    pattern.value = "classic";
+
+    updateFeather();
+});
+
+updateFeather();
